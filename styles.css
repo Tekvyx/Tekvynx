@@ -1,0 +1,171 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --panel: #131d32;
+  --panel-border: #233455;
+  --text: #ecf2ff;
+  --muted: #a6b7d8;
+  --accent: #5dd6ff;
+  --danger: #ff7285;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #1b2d4f 0%, var(--bg) 45%);
+  color: var(--text);
+}
+
+.player-app {
+  width: min(980px, 92vw);
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+}
+
+.top-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.card {
+  background: color-mix(in srgb, var(--panel), black 10%);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.file-picker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #3f5c89;
+  cursor: pointer;
+  background: #1f3153;
+  font-weight: 600;
+}
+
+.file-picker input {
+  display: none;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+#trackMeta {
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+button {
+  border: 1px solid #3f5c89;
+  background: #1f3153;
+  color: var(--text);
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.controls button {
+  font-size: 1.2rem;
+  width: 52px;
+}
+
+.seek-row,
+.volume-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+input[type='range'] {
+  width: 100%;
+}
+
+.library {
+  min-height: 300px;
+}
+
+.library-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+#trackList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 380px;
+  overflow: auto;
+}
+
+.track-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.track-item:hover {
+  background: #1d2b48;
+}
+
+.track-item.active {
+  border-color: var(--accent);
+  background: #21375c;
+}
+
+.track-meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.danger {
+  border-color: #97485b;
+  color: #ffd2da;
+  background: #43212a;
+}
+
+@media (max-width: 760px) {
+  .player-app {
+    grid-template-columns: 1fr;
+  }
+}
